@@ -79,3 +79,7 @@ The `main.rb` file is designed to work as a command-line tool, reading from stan
 ```bash
 ruby main.rb
 ```
+
+## Next Steps
+
+1. Small refactor to avoid re-calculations of some values
