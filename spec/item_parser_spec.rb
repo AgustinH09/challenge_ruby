@@ -24,5 +24,15 @@ RSpec.describe ItemParser do
       expect(item.name).to eq('imported box of chocolates')
       expect(item.price).to eq(10.00)
     end
+
+    it 'correctly parses a line with a whole number price' do
+      line = '1 bag of chips at 10'
+      item = ItemParser.parse(line)
+
+      expect(item).to be_a(Item)
+      expect(item.quantity).to eq(1)
+      expect(item.name).to eq('bag of chips')
+      expect(item.price).to eq(10.0)
+    end
   end
 end

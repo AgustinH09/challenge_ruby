@@ -4,10 +4,12 @@ require_relative 'item'
 
 # Class to parse a line into an Item
 class ItemParser
-  LINE_ITEM_REGEX = /(\d+)\s(.*)\sat\s(\d+\.\d+)/.freeze
+  LINE_ITEM_REGEX = /(\d+)\s(.*)\sat\s([\d.]+)/.freeze
 
   def self.parse(line)
     match = LINE_ITEM_REGEX.match(line)
+
+    raise ArgumentError, "Invalid line item format: '#{line.strip}'" unless match
 
     Item.new(
       quantity: match[1].to_i,
